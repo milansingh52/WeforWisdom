@@ -1,0 +1,57 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <section>
+        <div class="row">
+            <h2 class="text-center text-secondary mt-3"><span class="border-bottom">
+                     Search Result</span>
+            </h2>
+            {% if courses|length < 1 %}
+                <h3 class="text-danger text-center my-5">oops! Course Not Found</h3>
+            {% else %}
+            {% for course in courses %}
+            <!-- Card -->
+            <div class="col-md-3 mt-5">
+                <div class="card course-card" style="width: 18rem;">
+
+                    <!-- thumbnail -->
+                    <img src="/media/{{course.feature_photo}}" class="card-img-top" alt="not found">
+
+                    <div class="card-body">
+
+                        <!-- title -->
+                        <a href="/course-detail/{{course.id}}" class="text-decoration-none">
+                            <h5 class="card-title fw-bold">{{course.title|truncatewords:15}}</h5>
+                        </a>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+
+                        <div class="row border-top pt-3">
+                            <!-- total lesson -->
+                            <div class="col text-secondary"><small>lesson</small></div>
+                            <!-- price 1 -->
+                            <div class="col text-end text-success fw-bold" style="font-family:'Open Sans';">
+                                <strike><small>Rs 10500</small></strike>
+                            </div>
+                            <!-- actual price -->
+                            <div class="col text-end bg-success text-white fw-bold" style="font-family:'Open Sans';">
+                                <small>Rs {{course.price}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

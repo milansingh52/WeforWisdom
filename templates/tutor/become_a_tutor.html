@@ -1,0 +1,408 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div>
+    {% if error %}
+    <h4>{{ error }}</h4>
+    {% endif %}
+    <!--Registration Form-->
+    <div class="container_home px-3 border shadow">
+        <form action="/become-a-tutor/" method="post" onsubmit="return validateForm();"  enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- section 1 -->
+            <section class="row g-3" id="section1">
+                <!-- Heading -->
+                <div class="mt-5 text-secondary border-bottom">
+                    <h5><i class="bi bi-caret-right-fill"></i>Your basic information</h5>
+                </div>
+
+                <!-- content -->
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name *">
+                </div>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email *">
+                </div>
+
+                <div class="col-md-6">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password *">
+                </div>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" id="cpassword" name="cpassword"
+                        placeholder="Confirm Password *">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number *">
+                </div>
+
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="fee" name="fee" placeholder="Teaching fee /hour *">
+                </div>
+            </section>
+
+            <!-- section 2 -->
+            <section class="section2" id="section2">
+                <!-- heading -->
+                <div class="mt-5 text-secondary border-bottom">
+                    <h5><i class="bi bi-caret-right-fill"></i>A little more about you</h5>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-6">
+
+                        <!-- sub heading 1 -->
+                        <div class="my-2 fw-semibold text-secondary border-bottom">
+                            <small>I am a *</small>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="row" id="gender">
+                            <div class="col-md-3 border rounded bg-light py-1 mx-2">
+                                <input class="form-check-input" type="radio" name="gender" value="male" id="male">
+                                <label class="form-check-label" for="male"> Male </label>
+                            </div>
+                            <div class="col-md-3 border rounded bg-light py-1 mx-2">
+                                <input class="form-check-input" type="radio" name="gender" value="female" id="female">
+                                <label class="form-check-label" for="female"> Female </label>
+                            </div>
+                            <div class="col-md-3 border rounded bg-light py-1 mx-2">
+                                <input class="form-check-input" type="radio" name="gender" value="other" id="other">
+                                <label class="form-check-label" for="other"> Other </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <!-- sub heading 2 -->
+                        <div class="my-2 fw-semibold text-secondary border-bottom">
+                            <small>I Live in *</small>
+                        </div>
+
+                        <!-- content -->
+                        <div>
+                            <select class="form-select" name="live_area" aria-label="Default select example">
+                                <option value="Kathmandu" selected>Kathmandu</option>
+                                <option value="Biratnagar">Biratnagar</option>
+                                <option value="Birjunj">Birjunj</option>
+                                <option value="Butwal">Butwal</option>
+                                <option value="Dhangadi">Dhangadi</option>
+                                <option value="Hetauda">Hetauda</option>
+                                <option value="Janakpur">Janakpur</option>
+                                <option value="Mahendranagar">Mahendranagar</option>
+                                <option value="Narayangath">Narayangath</option>
+                                <option value="Nepalgunj">Nepalgunj</option>
+                                <option value="Pokhara">Pokhara</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-6">
+
+                        <!-- sub heading 2 -->
+                        <div class="my-2 fw-semibold text-secondary border-bottom">
+                            <small>I was born in (AD)*</small>
+                        </div>
+
+                        <!-- content -->
+                        <select class="form-select" name="dob" aria-label="Default select example">
+                            <option selected disabled>-Select Year of Birth-</option>
+                            <option value="1983">1983</option>
+                            <option value="1984">1984</option>
+                            <option value="1985">1985</option>
+                            <option value="1986">1986</option>
+                            <option value="1987">1987</option>
+                            <option value="1988">1988</option>
+                            <option value="1989">1989</option>
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+
+                        <!-- sub heading 2 -->
+                        <div class="my-2 fw-semibold text-secondary border-bottom">
+                            <small>I am currently studying/finished *</small>
+                        </div>
+
+                        <!-- content -->
+
+                        <div>
+                            <select class="form-select" name="study_status" aria-label="Default select example">
+                                <option selected disabled>-Select a value-</option>
+                                <option value="Secondary Level">Secondary Level</option>
+                                <option value="Higher Secondary Level (Purshing)">Higher Secondary Level (Purshing)
+                                </option>
+                                <option value="Higher Secondary Level (Completed)">Higher Secondary Level (Completed)
+                                </option>
+                                <option value="Bachelor Degree (Purshing)">Bachelor Degree (Purshing)</option>
+                                <option value="Bachelor Degree (Completed)">Bachelor Degree (Completed)</option>
+                                <option value="Master Degree (Purshing)">Master Degree (Purshing)</option>
+                                <option value="Master Degree (Completed)">Master Degree (Completed)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <!-- sub heading 2 -->
+                        <div class="my-2 fw-semibold text-secondary border-bottom">
+                            <small>I have teaching experience of *</small>
+                        </div>
+
+                        <!-- content -->
+                        <select class="form-select" name="teaching_exp" aria-label="Default select example">
+                            <option selected disabled>-Select a value-</option>
+                            <option value="Not Yet">Not Yet</option>
+                            <option value="1 Years">1 Years</option>
+                            <option value="2 Years">2 Years</option>
+                            <option value="3 Years">3 Years</option>
+                            <option value="4 Years">4 Years</option>
+                            <option value="5 Years">5 Years</option>
+                            <option value="6 Years">6 Years</option>
+                            <option value="7 Years">7 Years</option>
+                            <option value="8 Years">8 Years</option>
+                            <option value="9 Years">9 Years</option>
+                            <option value="10+ Years">10+ Years</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- sub heading 2 -->
+                        <div class="my-2 fw-semibold text-secondary border-bottom">
+                            <small>I prefer teaching at *</small>
+                        </div>
+
+                        <!-- content -->
+                        <div>
+                            <select class="form-select" name="teaching_area" aria-label="Default select example">
+                                <option value="Online">Online</option>
+                                <option value="Student's home">Student's home</option>
+                                <option value="My own place">My own place</option>
+                                <option value="Online or Student home">Online or Student home</option>
+                                <option value="Online or My own place">Online or My own place</option>
+                                <option value="Student home or My own place">Student home or My own place</option>
+                                <option value="Online, Student home or My own place">Online, Student home or My own
+                                    place
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="section3 row g-3" id="section3">
+                <!-- heading -->
+                <div class="mt-5 mb-2 text-secondary border-bottom">
+                    <h5><i class="bi bi-caret-right-fill"></i>Select subjects grade wise</h5>
+                </div>               
+
+                <!-- content -->
+                <div class="col-md-6">
+                    <!-- <input type="text" class="form-control" id="category" name="category" placeholder="Category "> -->
+                    <select class="form-select" aria-label="Default select example" name="category" id="category">
+                        <option disabled selected>Choose Category</option>
+                        <option value="grade_1_to_5">Grade 1 to 5</option>
+                        <option value="grade_6_to_10">Grade 6 to 10</option>
+                        <option value="programming">Programming</option>
+                        <option value="dancing">Dancing</option>
+                        <option value="languages">Language</option>
+                        <option value="yoga">Yoga</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-select" aria-label="Default select example" name="subject" id="subject">
+                        <option disabled selected>Choose Subject</option>
+                        <!-- Options will be dynamically populated here -->
+                    </select>
+                </div>
+
+
+            </section>
+
+            <!-- section 4 -->
+            <section class="row g-3" id="section4">
+                <!-- Heading -->
+                <div class="mt-5 text-secondary border-bottom">
+                    <h5><i class="bi bi-caret-right-fill"></i>Your basic information</h5>
+                </div>
+
+                <!-- content -->
+                <div class="mb-3">
+                    <textarea class="form-control" id="about_your_self" name="about_your_self" rows="4"
+                        placeholder="Tell us something about your self"></textarea>
+                </div>
+            </section>
+
+            <!-- section 5 -->
+            <section class="row" id="section5">
+                <!-- Heading -->
+                <div class="mt-3 mb-2 text-secondary border-bottom">
+                    <h5><i class="bi bi-caret-right-fill"></i>Demo Video</h5>
+                </div>
+
+                <!-- content -->
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <!-- <input class="form-control" type="file" id="demo_video" name="demo_video"> -->
+                        <input type="file" name="video">
+                    </div>
+                </div>
+            </section>
+
+            <!-- section 6 -->
+            <section class="row" id="section5">
+                <!-- Heading -->
+                <div class="mt-5 mb-2 text-secondary border-bottom">
+                    <h5><i class="bi bi-caret-right-fill"></i>Profile Picture</h5>
+                </div>
+
+                <!-- content -->
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <!--<input class="form-control" type="file" id="tutor_photo" name="tutor_photo"> -->
+                        <!-- <input type="file" id="tutor_photo" name="tutor_photo"> -->
+                        <input type="file" name="image"><br><br>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- section 7 -->
+            <section class="row my-4" id="section6">
+
+                <div class="col-md-3">
+                    <div class="mb-1">
+                        <input class="btn btn-primary" type="submit" value="Become a Tutor">
+                    </div>
+                </div>
+            </section>
+
+
+        </form>
+    </div>
+</div>
+<!--end body-->
+
+
+<script>
+    // Function to validate email using regex
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Function to perform form validation
+    function validateForm() {
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const cpasswordInput = document.getElementById('cpassword');
+        const phoneInput = document.getElementById('phone');
+        const feeInput = document.getElementById('fee');
+        const categoryInput = document.getElementById('category');
+        const subjectInput = document.getElementById('subject');
+        const aboutYourselfInput = document.getElementById('about_your_self');
+        const videoInput = document.querySelector('input[name="video"]');
+        const imageInput = document.querySelector('input[name="image"]');
+
+        // Check if name is not empty
+        if (nameInput.value.trim() === '') {
+            alert('Please enter your full name.');
+            nameInput.focus();
+            return false;
+        }
+
+        // Check if email is valid
+        if (!validateEmail(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            emailInput.focus();
+            return false;
+        }
+
+        // Check if password is at least 6 characters long
+        if (passwordInput.value.length < 6) {
+            alert('Password must be at least 6 characters long.');
+            passwordInput.focus();
+            return false;
+        }
+
+        // Check if password and confirm password match
+        if (passwordInput.value !== cpasswordInput.value) {
+            alert('Passwords do not match.');
+            cpasswordInput.focus();
+            return false;
+        }
+
+        // Check if phone number is not empty
+        if (phoneInput.value.trim() === '') {
+            alert('Please enter your phone number.');
+            phoneInput.focus();
+            return false;
+        }
+
+        // Check if teaching fee is not empty
+        if (feeInput.value.trim() === '') {
+            alert('Please enter your teaching fee per hour.');
+            feeInput.focus();
+            return false;
+        }
+
+        // Check if category is selected
+        if (categoryInput.value === 'Choose Category') {
+            alert('Please select a category.');
+            categoryInput.focus();
+            return false;
+        }
+
+        // Check if subject is selected
+        if (subjectInput.value === 'Choose Subject') {
+            alert('Please select a subject.');
+            subjectInput.focus();
+            return false;
+        }
+
+        // Check if about yourself is not empty
+        if (aboutYourselfInput.value.trim() === '') {
+            alert('Please tell us something about yourself.');
+            aboutYourselfInput.focus();
+            return false;
+        }
+
+        // Check if video and image files are selected
+        if (!videoInput.files.length) {
+            alert('Please upload a demo video.');
+            return false;
+        }
+
+        if (!imageInput.files.length) {
+            alert('Please upload a profile picture.');
+            return false;
+        }
+
+        // All validation passed
+        return true;
+    }
+</script>
+
+{% endblock content %}

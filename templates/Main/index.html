@@ -1,0 +1,118 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+
+<!--hero section-->
+<div class="container-fluid mt-5">
+    <!-- section 1 -->
+    <section>
+        <div class="row justify-content-evenly">
+            <div class="col-md-5 my-5">
+                <h2 class="display-5 wfw-color-2">Welcome to</h2>
+                <h1 class="wfw-color wfw-font2 title-heading fw-bold">We for Wisdom</h1>
+                <p class>A Comprehensive Tutor Finding and Course Management System Whether you're seeking a private
+                    tutor
+                    to guide you through
+                    challenging subjects or searching for the perfect course
+                </p>
+                <!-- <p>The ultimate platform for personalized learning and growth.
+                    Whether you're seeking a private tutor to guide you through
+                    challenging subjects or searching for the perfect course to
+                    expand your knowledge, we're here to empower you on your
+                    educational journey.
+                </p> -->
+
+                <a href="{% url 'tutor_home'%}" class="btn wfw-button-color-2"><i class="bi bi-person-check"></i> Find
+                    Tutor</a>
+                <a href="{%url 'course_home'%}" class="btn wfw-button-color"> <i class="bi bi-laptop"></i> Our Premium
+                    Course</a>
+            </div>
+            <div class="col-md-5">
+                <img src={myImage} alt="" className="hero-img" />
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="text-center text-secondary mt-3"><span class="border-bottom">
+            <i class=""></i> What We Offer ?</span>
+        </h2>
+        <div class="col-md-6">
+            <img src="/media/tutor_img/offer.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-10 mt-5 p-4">
+                    <h2><i class="bi bi-person-badge-fill"></i>  Home Tutor</h2>
+                </div>
+                <div class="col-md-10 mt-5 p-4">
+                    <h2><i class="bi bi-person-bounding-box"></i>  Online Tutor</h2>
+                </div>
+                <div class="col-md-10 mt-5 p-4">
+                    <h2><i class="bi bi-person-workspace"></i>  Course Selling Tutor</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <section>
+        <div class="row">
+            <h2 class="text-center text-secondary mt-3"><span class="border-bottom">
+                    <i class="bi bi-youtube"></i> Feature Course</span>
+            </h2>
+            {% for course in courses %}
+            <!-- Card -->
+            <div class="col-md-3 mt-5 ">
+                <div class="card course-card" style="width: 18rem;">
+
+                    <!-- thumbnail -->
+                    <img src="/media/{{course.feature_photo}}" class="card-img-top" alt="not found">
+
+                    <div class="card-body">
+
+                        <!-- title -->
+                        <a href="/course-detail/{{course.id}}" class="text-decoration-none">
+                            <h5 class="card-title fw-bold">{{course.title|truncatewords:15}}</h5>
+                        </a>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+
+                        <div class="row border-top pt-3">
+                            <!-- total lesson -->
+                            <div class="col text-secondary"><small>lesson</small></div>
+                            <!-- price 1 -->
+                            <div class="col text-end text-success fw-bold" style="font-family:'Open Sans';">
+                                <strike><small>Rs 10500</small></strike>
+                            </div>
+                            <!-- actual price -->
+                            <div class="col text-end bg-success text-white fw-bold" style="font-family:'Open Sans';">
+                                <small>Rs {{course.price}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            <div class="text-center my-4">
+                <a href="{%url 'course_home'%}" class="btn wfw-button-color">View All</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!-- <img src="/static/assets/images/SVG files/undraw_educator_re_ju47.svg" height="400px" alt=""> -->
+
+{% endblock content %}

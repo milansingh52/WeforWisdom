@@ -1,0 +1,121 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+
+        {% for course in courses %}
+        <!-- Left -->
+        <div class="col-md-8">
+
+            <!-- Title -->
+            <h1 class="mb-3">{{course.title}}</h1>
+
+            <!-- Description -->
+            <p>{{course.description}}</p>
+
+            <!-- Syllabus -->
+            <h5>Syllabus</h5>
+
+            
+
+            <!-- Syllabus Videos -->
+            <div class="accordion" id="accordionExample">
+
+                <!-- Lecture item 1  -->
+                {% for lesson in course.lesson_set.all %}
+                <div class="accordion-item border shadow">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#id{{lesson.id}}" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="row py-2">
+                                <!-- SN -->
+                                <div class="col-1 "> 01 </div>
+                                <!-- Title and lession -->
+                                <div class="col ms-1 ">
+                                    <span class="">{{lesson.name}}</span> <br>
+                                    <small class="text-secondary">1 Lesson . 1 Attachment</small>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    {% for video in lesson.video_set.all %}
+                    <a href="/course-view/{{video.youtube_id}}" class="text-decoration-none">
+                        <div id="id{{lesson.id}}" class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row py-1">
+                                    <!-- video logo -->
+                                    <div class="col-1" style="width: 0%;">
+                                        <i class="bi bi-camera-video text-secondary"></i>
+                                    </div>
+
+                                    <!-- video title and time  -->
+                                    <div class="col ms-1">
+                                        <small>{{video.title}}</small> <br>
+                                        <small class="text-secondary">Video .{{video.time_duration}} min</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                
+                <!-- Lecture item 2 -->
+
+            </div>
+        </div>
+
+        <!-- Right -->
+        <div class="col-md-4">
+            <div class="card-group">
+                <div class="card shadow">
+                    <div class="card-body">
+                        {% comment %} <form action="/student-login/" method="POST"> {% endcomment %}
+                        <form action="/payment/{{course.price}}" method="POST">
+                            {% csrf_token %}
+                            <div class="inner position-relative">
+                                <img src="/media/{{course.feature_photo}}" class="card-img-top" alt="...">
+                                <!-- SVG video play icon -->
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="100"
+                                    height="100"
+                                    viewBox="0 0 100 100"
+                                    class="position-absolute top-50 start-50 translate-middle"
+                                >
+                                    <circle cx="50" cy="50" r="30" stroke="red" stroke-width="5" fill="none" />
+                                    <polygon points="38,30 38,70 68,50" fill="red" />
+                                </svg>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{courses.title}}</h4>
+                                <h5>Rs {{course.price}}</h5>
+                                <div class="row">
+                                    <input type="submit" value="Buy Now" class="btn btn-danger m-auto">
+                                </div>
+                            </div>
+                            <div class="border-top py-2">
+                                <p>What's included</p>
+                                <p>+1 Lesson</p>
+                                <p>Online Availability</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    {% endfor %}
+
+    {% endblock content %}
+
+
+
+    {% comment %} example {% endcomment %}
+    

@@ -1,0 +1,52 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 250px; height:739px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <img src="/static/assets/images/Photo/logo3.png" height="50px" width="40px" alt="">
+      <span class="fs-4 text-center">We for Wisdom</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        {% comment %} <a href="#" class="nav-link active" aria-current="page"> {% endcomment %}
+        <a href="{% url 'dashboard_home' %}" class="nav-link text-white" aria-current="page">
+          <i class="bi bi-house pe-2"></i>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'dashboard_author' %}" class="nav-link text-white">
+          <i class="bi bi-person-check pe-2"></i>
+          Author
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'dashboard_course' %}" class="nav-link text-white">
+          <i class="bi bi-play-btn pe-2"></i>
+          Course
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'dashboard_lesson' %}" class="nav-link text-white">
+          <i class="bi bi-file-earmark-play pe-2"></i>
+          Lessons
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'dashboard_video' %}" class="nav-link text-white">
+          <i class="bi bi-camera-video pe-2"></i>
+          Video
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>Welcome, {{user.first_name}}</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" href="{% url 'dashboard_profile'%}">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
+      </ul>
+    </div>
+  </div>

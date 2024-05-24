@@ -1,0 +1,106 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<section class="d-flex flex-column min-vh-80 justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <p class="text-center text-secondary fs-2">Create a New Account</p>
+            
+
+            <div class="col-md-5 mx-auto">
+                <div class="m-5">
+                    {% if error %}       
+                    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                        <strong>{{error}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    <form action="/signup/" method="POST" onsubmit="return validateForm();">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Email or Username *</label>
+                            <input class="form-control" type="text" name="email" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="name">Enter Your Name *</label>
+                            <input class="form-control" type="text" name="name" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password *</label>
+                            <input class="form-control" type="password" name="password" id="password">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Confirm Password *</label>
+                            <input class="form-control" type="password" name="cpassword" id="cpassword">
+                        </div>
+
+                        <div class="mt-4">
+                            <input type="submit" value="Register" class="form-control btn btn-primary">
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="text-center">
+                                Already have an account <a href="{% url 'login' %}">SIGN IN</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    // Function to validate email using regex
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Function to perform form validation
+    function validateForm() {
+        const emailInput = document.getElementById('email');
+        const nameInput = document.getElementById('name');
+        const passwordInput = document.getElementById('password');
+        const cpasswordInput = document.getElementById('cpassword');
+
+        // Check if email is valid
+        if (!validateEmail(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            emailInput.focus();
+            return false;
+        }
+
+        // Check if name is not empty
+        if (nameInput.value.trim() === '') {
+            alert('Please enter your name.');
+            nameInput.focus();
+            return false;
+        }
+
+        // Check if password is at least 6 characters long
+        if (passwordInput.value.length < 6) {
+            alert('Password must be at least 6 characters long.');
+            passwordInput.focus();
+            return false;
+        }
+
+        // Check if password and confirm password match
+        if (passwordInput.value !== cpasswordInput.value) {
+            alert('Passwords do not match.');
+            cpasswordInput.focus();
+            return false;
+        }
+
+        // All validation passed
+        return true;
+    }
+</script>
+
+
+{% endblock content %}

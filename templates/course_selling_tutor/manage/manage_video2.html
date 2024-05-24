@@ -1,0 +1,64 @@
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<p>Edit Video</p>
+
+{% endblock heading %}
+{% block content %}
+<form action="/manage-video2/{{video.id}}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+                         
+            <tr>
+                <th scope="col">Video</th>
+                <tr>
+                    <th scope="col">Serial Number: </th>
+                    <td><input type="number" name="sn" value="{{video.serial_number}}"></td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Thumbnail: </th>
+                    <td> <input type="file" name="image"> </td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Course: </th>
+                    <td>
+                        <select name="course" aria-label="Default select example">
+                            <option value="{{video.course}}" selected>{{video.course}}</option>                        
+                        </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Lesson: </th>
+                    <td>
+                        <select name="lesson" aria-label="Default select example">                            
+                            <option value="{{video.lesson}}" selected>{{video.lesson}}</option>                      
+                        </select> 
+                    </td>                   
+                </tr>
+
+                <tr>
+                    <th scope="col">Title: </th>
+                    <td><input type="text" name="title" value="{{video.title}}"></td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Youbute Id: </th>
+                    <td><input type="text" name="youtube_id" value="{{video.youtube_id}}"></td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Time duration: </th>
+                    <td><input type="text" name="time_duration" value="{{video.time_duration}}"></td>                    
+                </tr>           
+                        
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary px-4" value="Save"></td>
+                <td><a href="/delete-video/{{video.id}}" class="btn btn-danger px-4">Delete</a></td>                
+            </tr>
+        </thead>
+    </table>
+    
+</form>
+
+{% endblock content %}

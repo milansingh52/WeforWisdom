@@ -1,0 +1,4 @@
+
+
+def REGISTER(request):
+    pass

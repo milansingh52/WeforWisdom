@@ -1,0 +1,161 @@
+/* body {
+    background-color: skyblue !important;
+} */
+
+/* Common css */
+.wfw-color {
+    color: #754ffe;
+}
+
+.wfw-color-2 {
+    color: #F9A701;
+}
+
+.wfw-font1 {
+    font-family: 'Inter', sans-serif;
+}
+
+.wfw-font2 {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.wfw-button-color {
+    background-color: #754ffe;
+    color: white;
+}
+
+.wfw-button-color-2 {
+    background-color: #F9A701;
+    color: white;
+}
+
+.hero-img {
+    width: 100%;
+    height: 65vh;
+}
+
+.title-heading {
+    font-size: 80px;
+}
+
+
+/* Tutor CSS */
+.container_home {
+    width: 65%;
+    margin: auto;
+}
+
+
+.tutor_list_div:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    border: none !important;
+}
+
+/* .active {
+    color: red !important;
+} */
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 1s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.1);
+}
+
+.nav-tabs .nav-link {
+    color: black !important;
+}
+
+
+
+
+/* Tutor List */
+.online-status-indicator {
+    position: absolute;
+    bottom: 10px;
+    right: 43px;
+    width: 15px;
+    height: 15px;
+    background-color: #4CAF50;
+    /* Green color for online */
+    border-radius: 50%;
+    /* Makes it a circle */
+    border: 2px solid white;
+    /* Add a border for contrast */
+}
+
+
+
+/* Course */
+.u_course .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.67); */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black with 50% opacity */
+    display: none;
+    display: block;
+}
+
+.u_course .card-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/* Rating */
+.card {
+    max-width: 33rem;
+    background: #fff;
+    margin: 0 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.star {
+    font-size: 4vh;
+}
+
+.one {
+    color: rgb(255, 0, 0);
+    display: inline;
+}
+
+.two {
+    color: rgb(255, 106, 0);
+    display: inline;
+}
+
+.three {
+    color: rgb(251, 255, 120);
+}
+
+.four {
+    color: rgb(255, 255, 0);
+}
+
+.five {
+    color: rgb(24, 159, 14);
+}

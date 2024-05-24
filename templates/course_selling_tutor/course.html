@@ -1,0 +1,32 @@
+
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<h1>Course Page</h1>
+
+{% endblock heading %}
+{% block content %}
+
+<p>Select Course to Change</p>
+<div class="text-end">
+    <a href="/manage-course/" class="btn btn-secondary">Add Course <i class="bi bi-plus"></i></a>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <td scope="col">Course</td>
+      </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+      <tr>
+        <td><a href="/manage-course2/{{course.id}}" class="text-decoration-none">{{course.title}}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+
+{% endblock content %}

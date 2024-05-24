@@ -1,0 +1,32 @@
+
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<h1>Video Page</h1>
+
+{% endblock heading %}
+{% block content %}
+
+<p>Select Video to Change</p>
+<div class="text-end">
+    <a href="/manage-video/" class="btn btn-secondary">Add Video <i class="bi bi-plus"></i></a>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <td scope="col">Videos</td>
+      </tr>
+    </thead>
+    <tbody>
+        {% for video in videos %}
+      <tr>
+        <td><a href="/manage-video2/{{video.id}}" class="text-decoration-none">{{video.title}}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<p>Add Author</p>
+
+{% endblock heading %}
+{% block content %}
+<form action="/manage-course2/{{course.id}}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Feature Photo</th>
+                <td> <input type="file" name="image"> </td>
+            </tr>
+            <tr>
+                <th scope="col">Feature Video</th>
+                <td><input type="text" name="fvideo" value="{{course.feature_video}}"></td>
+            </tr>             
+            <tr>
+                <th scope="col">Title</th>
+                <td><input type="text" name="title" value= "{{course.title}}"></td>
+            </tr>             
+            <tr>
+                <th scope="col">Author</th>
+                <td> 
+                    <select name="author" aria-label="Default select example">
+                        <option value="{{course.author}}" selected>{{course.author}}</option>                        
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Category</th>
+                <td> <input type="text" name="category" value= "{{course.category}}"></td>
+            </tr>
+            <tr>
+                <th scope="col">Description</th>
+                <td> <textarea id="about" name="description" rows="8" cols="80">{{course.description}}</textarea></td>
+            </tr>
+            <tr>
+                <th scope="col">Price</th>
+                <td> <input type="text" name="price" value= "{{course.price}}"></td>
+            </tr>
+            <tr>
+                <th scope="col">Validity Days</th>
+                <td> <input type="text" name="vdays" value= "{{course.validity_days}}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary px-4" value="Save"></td>
+                <td><a href="/delete-course/{{course.id}}" class="btn btn-danger px-4">Delete</a></td>
+            </tr>
+            
+        </thead>
+    </table>
+    
+</form>
+
+{% endblock content %}

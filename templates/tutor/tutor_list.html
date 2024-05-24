@@ -1,0 +1,217 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <!--top search-->
+    <div class="row">
+        <form class="row needs-validation" action="/tutor-list/" method="post">
+            {% csrf_token %}
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example" name="category_value">
+                    <option value="{{category_value}}" selected>{{category_value}}</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example" name="subject">
+                    <option value="{{subject}}" selected>{{subject}}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select" aria-label="Default select example" name="location">
+                    <option selected desabled>Choose Category</option>
+                    <option value="Kathmandu" selected>Kathmandu</option>
+                    <option value="Biratnagar">Biratnagar</option>
+                    <option value="Birjunj">Birjunj</option>
+                    <option value="Butwal">Butwal</option>
+                    <option value="Dhangadi">Dhangadi</option>
+                    <option value="Hetauda">Hetauda</option>
+                    <option value="Janakpur">Janakpur</option>
+                    <option value="Mahendranagar">Mahendranagar</option>
+                    <option value="Narayangath">Narayangath</option>
+                    <option value="Nepalgunj">Nepalgunj</option>
+                    <option value="Pokhara">Pokhara</option>
+                </select>
+            </div>
+
+            <div class="col-md-2 text-end">
+                <button class="btn btn-primary" type="submit">Find Tutor</button>
+            </div>
+        </form>
+
+    </div>
+    <hr>
+
+
+
+    <!-- View teacher -->
+    <div class="row mt-4">
+
+        <!-- filter -->
+        <div class="col-md-3">
+            <div class="shadow border-sm mb-5 p-2 bg-warning">
+                <p class="text-center fw-bold text-decoration-underline">More Filter</p>
+
+                <!-- <div class="form-group">
+                    <p>Teaching Experience:</p>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">0 to 1 Years</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">2 to 4 Years</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">5 - 7 Years</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">8 - 10 Years</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">10+ Years</label>
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <p>Gender</p>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Male</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Female</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Other</label>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <p>Teaching Location</p>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Student's Home</label>
+                    </div>
+
+
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Female</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p>Teaching Location</p>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Student's Home</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Female</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p>Qualification</p>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Secondary Level</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Higher Secondary Level (Purshing)</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Higher Secondary Level (Completed)</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Bachelor Degree (Purshing)</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Bachelor Degree (Completed)</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Master Degree (Purshing)</label>
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Master Degree (Completed)</label>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="col-md-9 border rounded shadow-lg">
+            <!--list-->
+
+            {% if tutors|length < 1 %} <h1 class="text-center text-danger">Tutor Not Found</h1>
+                {% else %}
+                {% for tut in tutors %}
+                <!-- teacher 1 -->
+                <a href="/tutor-details/{{tut.id}}" class="text-decoration-none">
+
+                    <div class="row py-4 mb-3 border-bottom">
+                        <div class="col-md-2">
+                            <!-- Online status indicator -->
+                            <span class="online-status-indicator"></span>
+
+                            <!-- Photo -->
+                            <img src="/media/{{ tut.tutor_photo }}" alt="not found"
+                                class="img-fluid border rounded-circle" style="height: 120px; width: 120px;">
+                        </div>
+
+
+
+                        <div class="col-md-6 text-secondary">
+                            <!-- details -->
+                            <h5>{{tut.name}}</h5>
+
+                            <span>{{tut.gender}}, {{tut.dob}}</span><br>
+
+                            <span><i class="bi bi-mortarboard-fill"></i> {{tut.study_status}} </span><br>
+
+                            <span><i class="fa-solid fa-person-chalkboard"></i> {{tut.teaching_exp}}</span> <br>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+
+                            <span>({{ course.4 }})</span>
+                        </div>
+                        <div class="col-md-2">
+                            <!-- per hour  -->
+                            <div class="bg-danger text-white text-center shadow rounded my-5">{{tut.teaching_fee}}/hr</div>
+                        </div>
+                        <div class="col-md-2">
+                            <!-- view profile btn -->
+                            <div class="bg-success text-white text-center shadow rounded my-5">View Profile</div>
+                        </div>
+                    </div>
+                </a>
+
+
+                {% endfor %}
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

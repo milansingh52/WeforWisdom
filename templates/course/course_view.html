@@ -1,0 +1,152 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" style="height:80%">
+            <iframe width="100%" height="600" src="https://www.youtube.com/embed/{{youtube_id}}"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+
+
+            <!--tabs-->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                        type="button" role="tab" aria-controls="home" aria-selected="true">Profile</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false">Certificate</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                        type="button" role="tab" aria-controls="contact" aria-selected="false">Review</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    This Tutorial is based on programming dolor sit amet consectetur adipisicing elit. Qui vel laboriosam itaque quis ducimus
+                    assumenda quisquam dolor, dolores magnam saepe voluptatibus distinctio quo incidunt animi id. Dolore
+                    autem minus optio.
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    This is Certificate page
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    This is review page
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <!-- Syllabus -->
+            <h5>Syllabus</h5>
+
+            <!-- Syllabus Videos -->
+            {% comment %} <div class="accordion" id="accordionExample">
+
+                <!-- Lecture item 1  -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="row py-2">
+                                <!-- SN -->
+                                <div class="col-1 "> 01 </div>
+                                <!-- Title and lession -->
+                                <div class="col ms-1 ">
+                                    <span class="">Orientation and Fundamentals</span> <br>
+                                    <small class="text-secondary">1 Lesson . 1 Attachment</small>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <a href="/lesson-details/" class="text-decoration-none">
+                        <div id="collapseOne" class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row py-1">
+                                    <!-- video logo -->
+                                    <div class="col-1" style="width: 0%;">
+                                        <i class="bi bi-camera-video text-secondary"></i>
+                                    </div>
+
+                                    <!-- video title and time  -->
+                                    <div class="col ms-1">
+                                        <small>Orientation Lecture</small> <br>
+                                        <small class="text-secondary">Video .35m 20sec</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Lecture item 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="row py-2">
+                                <!-- SN -->
+                                <div class="col-1 fw-bold"> 02 </div>
+                                <!-- Title and lession -->
+                                <div class="col ms-1 ">
+                                    <span class="fw-bold">C Language Assignment and Solutions</span> <br>
+                                    <small class="text-secondary">1 Lesson . 1 Attachment</small>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row py-1 my-2">
+                                <!-- video logo -->
+                                <div class="col-1" style="width: 0%;">
+                                    <i class="bi bi-camera-video text-secondary"></i>
+                                </div>
+
+                                <!-- video title and time  -->
+                                <div class="col ms-1">
+                                    <small>Orientation Lecture</small> <br>
+                                    <small class="text-secondary">Video .35m 20sec</small>
+                                </div>
+                            </div>
+                            <div class="row py-1 my-2">
+                                <!-- video logo -->
+                                <div class="col-1" style="width: 0%;">
+                                    <i class="bi bi-camera-video text-secondary"></i>
+                                </div>
+
+                                <!-- video title and time  -->
+                                <div class="col ms-1">
+                                    <small>Orientation Lecture</small> <br>
+                                    <small class="text-secondary">Video .35m 20sec</small>
+                                </div>
+                            </div>
+                            <div class="row py-1 my-2">
+                                <!-- video logo -->
+                                <div class="col-1" style="width: 0%;">
+                                    <i class="bi bi-camera-video text-secondary"></i>
+                                </div>
+
+                                <!-- video title and time  -->
+                                <div class="col ms-1">
+                                    <small>Orientation Lecture</small> <br>
+                                    <small class="text-secondary">Video .35m 20sec</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+
+{% endblock content %}

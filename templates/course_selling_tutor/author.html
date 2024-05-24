@@ -1,0 +1,32 @@
+
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<h1>Author Page</h1>
+
+{% endblock heading %}
+{% block content %}
+
+<p>Select Author to Change</p>
+<div class="text-end">
+    <a href="/manage-author/" class="btn btn-secondary">Add Author <i class="bi bi-plus"></i></a>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <td scope="col">Author</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for author in authors %}
+      <tr>
+        <td><a href="/manage-author2/{{author.id}}" class="text-decoration-none">{{author.name}}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+
+{% endblock content %}

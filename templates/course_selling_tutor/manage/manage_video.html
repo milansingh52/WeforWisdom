@@ -1,0 +1,67 @@
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<p>Add Lesson</p>
+
+{% endblock heading %}
+{% block content %}
+<form action="/manage-video/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+                         
+            <tr>
+                <th scope="col">Video</th>
+                <tr>
+                    <th scope="col">Serial Number: </th>
+                    <td><input type="number" name="sn"></td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Thumbnail: </th>
+                    <td> <input type="file" name="image"> </td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Course: </th>
+                    <td>
+                        <select name="course" aria-label="Default select example">
+                            {% for course in courses %}
+                            <option value="{{course.title}}" selected>{{course.title}}</option>
+                            {% endfor %}                        
+                        </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Lesson: </th>
+                    <td>
+                        <select name="lesson" aria-label="Default select example">                            
+                            {% for lesson in lessons %}
+                            <option value="{{lesson.name}}" selected>{{lesson.name}}</option>
+                            {% endfor %}                        
+                        </select> 
+                    </td>                   
+                </tr>
+
+                <tr>
+                    <th scope="col">Title: </th>
+                    <td><input type="text" name="title"></td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Youbute Id: </th>
+                    <td><input type="text" name="youtube_id"></td>                    
+                </tr>
+                <tr>
+                    <th scope="col">Time duration: </th>
+                    <td><input type="text" name="time_duration"></td>                    
+                </tr>           
+                        
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary px-4" value="Save"></td>                
+            </tr>
+        </thead>
+    </table>
+    
+</form>
+
+{% endblock content %}

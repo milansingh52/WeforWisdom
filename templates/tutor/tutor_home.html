@@ -1,0 +1,54 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<div class="container_home">
+
+    <!-- title -->
+    <div class="row text-center mt-5 mb-2">
+        <p>Find private tutor for all grade and subject</p>
+    </div>
+
+    <!-- Search Tutor -->
+    <form action="/tutor-list/" method="post" novalidate>
+        {% csrf_token %}
+
+        <div class="row justify-content-evenly bg-info py-5 text-white">
+            <!-- first section -->
+
+            <div class="col-md-2 text-end">                
+                <span>I Need a Tutor</span>
+            </div>
+
+            <!-- second section -->
+            <div class="col-md-3">
+                <select class="form-select" aria-label="Default select example" name="category_value" id="category">
+                        <option value = "choose" selected>Choose Category</option>
+                        <option value="grade_1_to_5">Grade 1 to 5</option>
+                        <option value="grade_6_to_10">Grade 6 to 10</option>
+                        <option value="programming">Programming</option>
+                        <option value="dancing">Dancing</option>
+                        <option value="languages">Language</option>
+                        <option value="yoga">Yoga</option>
+                </select>
+            </div>
+
+            <!-- third section -->
+            <div class="col-md-3">
+                <select class="form-select" aria-label="Default select example" name="subject" id="subject">
+                    <!-- Options will be dynamically populated here -->
+                </select>
+            </div>
+
+            <!-- fourth section -->
+            <div class="col-md-2">
+                <button class="btn btn-success" type="submit">Find Tutor</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
+

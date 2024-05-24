@@ -1,0 +1,38 @@
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<p>Add Lesson</p>
+
+{% endblock heading %}
+{% block content %}
+<form action="/manage-lesson2/{{lesson.id}}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Course Title</th>
+                <td> 
+                    <select name="course" aria-label="Default select example">
+                        <option value="{{lesson.course}}" selected>{{lesson.course}}</option>                        
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Name</th>
+                <td><input type="text" name="name" value="{{lesson.name}}"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn btn-primary px-4" value="Save">
+                    <a href="/delete-lesson/{{lesson.id}}" class="btn btn-danger px-4">Delete</a>
+                </td>
+    
+            </tr>
+        </thead>
+    </table>    
+</form>
+
+{% endblock content %}

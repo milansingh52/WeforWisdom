@@ -1,0 +1,111 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="col-md-3">
+                <div class="col-md-3">
+                    <h4>Filter</h4>
+                    <div class="form-group">
+                        <p>Price:</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="free-checkbox">
+                            <label class="form-check-label" for="free-checkbox">
+                                {% comment %} {% for course in recommended_courses %} {% endcomment %}
+                                Free
+                                {% comment %} {% endfor %} {% endcomment %}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="paid-checkbox">
+                            <label class="form-check-label" for="paid-checkbox">
+                                Paid
+                            </label>
+                        </div>
+                    </div>
+                    {% comment %} <div class="form-group">
+                        <h5>Levels:</h5>
+                        
+
+                        {% for course in recommended_courses %}
+
+                            {% ifchanged course.6 %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="english-checkbox">
+                                <label class="form-check-label" for="english-checkbox">
+                                    {{course.6}}                              
+                
+                                </label>
+                            </div>
+                            {% endifchanged %}
+                        {% endfor %}                        
+                    </div> {% endcomment %}
+                    {% comment %} <div class="form-group">
+                        <h5>Subject:</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="english-checkbox">
+                            <label class="form-check-label" for="english-checkbox">
+                                Business
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="nepali-checkbox">
+                            <label class="form-check-label" for="nepali-checkbox">
+                                IT
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="hindi-checkbox">
+                            <label class="form-check-label" for="hindi-checkbox">
+                                Art
+                            </label>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+
+                {% for course in recommended_courses %}
+                <div class="col-md-3 py-5 my-3" style="background-color: rgb(227, 230, 232);">
+                    <div class="card-play-button d-flex justify-content-center align-items-center">
+                        <a href="{{ course.1 }}" class="bi bi-play-circle-fill text-danger text-decoration-none"
+                            style="font-size: 3rem;"></a>
+                    </div>
+                </div>
+                <div class="col-md-9 my-3">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <h4 class="card-title">{{ course.0 }}</h4> <!-- Course Title -->
+                            {% comment %} <i class="card-title">{{ course.0 }}</i> <br> {% endcomment %}
+
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <small>({{ course.4 }})</small> <br>
+                            <small>{{course.7}} .</small>
+                            <small>({{course.5}}) lectures .</small>
+                            <small>{{course.6}}</small> <br>
+                            <small>({{course.3}}) subscribers</small> <br><br>
+                            <span class="bg-warning border rounded px-3 fw-bold pb-1"><small>Bestseller</small></span>
+
+                            {% comment %} <strong>Similarity Score:</strong> {{ course.6 }} {% endcomment %}
+                        </div>
+                        <div class="col-md-1">
+                            <h5>${{ course.2 }}</h5>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

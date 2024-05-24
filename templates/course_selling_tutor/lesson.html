@@ -1,0 +1,32 @@
+
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<h1>Author Page</h1>
+
+{% endblock heading %}
+{% block content %}
+
+<p>Select Lesson to Change</p>
+<div class="text-end">
+    <a href="/manage-lesson/" class="btn btn-secondary">ADD LESSON <i class="bi bi-plus"></i></a>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <td scope="col">Lesson</td>
+      </tr>
+    </thead>
+    <tbody>
+        {% for lesson in lessons %}
+      <tr>
+        <td><a href="/manage-lesson2/{{lesson.id}}" class="text-decoration-none">{{lesson.name}}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+
+{% endblock content %}

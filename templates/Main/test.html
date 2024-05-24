@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Header with Logo -->
+<header class="container-fluid text-white p-3" style="background-color: #1c252e;">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="\static\assets\images\Photo\esewa_epay_logo.png" alt="" width="150px" class="hero-img">
+            </div>
+        </div>
+    </div>
+</header>
+
+
+{% comment %} 
+dark: #1c252e
+green: #60bb47
+white: #000000,
+
+{% endcomment %}
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg" style="background-color:#60bb47;">
+    <div class="container">
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <div class="text-white text-center fw-bold">Please Login to Make Your Payment</div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Two Content Divs -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-7 border shadow rounded">
+            <div class="p-5">
+                <h4>Transaction Details</h4>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">EPAYTEST</th>
+                        <th scope="col">NPR</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">Product Amount:</td>
+                        <td>90.00</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Tax Amount:</td>
+                        <td>5.00</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Service Charge:</td>
+                        <td>2.00</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Delivery Charge:</td>
+                        <td>3.00</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Total Amount:</th>
+                        <th>100.00</th>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="col-md-4 mx-4 border shadow rounded">
+            <div class="px-5 pt-5">
+                <h4>Login</h4>
+                <form>
+                    <div class="mb-3">
+                        <label for="email1" class="form-label">eSewa Id:</label>
+                        <input type="email" class="form-control" id="email1" aria-describedby="emailHelp1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email2" class="form-label">Password:</label>
+                        <input type="email" class="form-control" id="email2" aria-describedby="emailHelp2">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn w-100 text-white" style="background-color:#60bb47;">Submit</button>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-secondary w-100 text-white">Cancel</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid text-dark p-3 mt-5 fixed-bottom" style="background-color:white;">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>&copy; eSewa Nepal, 2009-2023. All Rights Reserved.</p>
+            </div>
+            <div class="col text-right">
+                <img src="\static\assets\images\Photo\esewa-logo.png" alt="" width="120px" class="hero-img">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Link to Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<p>Add Author</p>
+
+{% endblock heading %}
+{% block content %}
+<form action="/manage-author/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Author Profile</th>
+                <td> <input type="file" name="image"> </td>
+            </tr>
+            <tr>
+                <th scope="col">Name</th>
+                <td><input type="text" name="name" value="{{user.first_name}}" readonly></td>
+            </tr>
+            <tr>
+                <th scope="col">About Author</th>
+                <td> <textarea id="about" name="about" rows="8" cols="80"></textarea></td>
+            </tr>
+        </thead>
+    </table>
+    <input type="submit" class="btn btn-primary px-4" value="Save">
+</form>
+
+{% endblock content %}

@@ -1,0 +1,85 @@
+
+
+{% extends "course_selling_tutor/dashboard_base.html" %}
+
+
+{% block heading %}
+<h1>Home Page</h1>
+
+{% endblock heading %}
+{% block content %}
+
+<div class="row">
+    <!-- Course Div -->
+    <div class="col-md-3 mb-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">Courses</h5>
+                <p class="card-text">Total Courses: 10</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Students Div -->
+    <div class="col-md-3 mb-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">Students</h5>
+                <p class="card-text">Total Students: 500</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lessons Div -->
+    <div class="col-md-3 mb-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">Lessons</h5>
+                <p class="card-text">Total Lessons: 30</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Details Div -->
+    <div class="col-md-3 mb-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">Video Details</h5>
+                <p class="card-text">Total Videos: 100</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <h2 class="mb-4">Sales Status</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Course Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ramesh Khadka</td>
+                <td>Ramesh@gmail.com</td>
+                <td>9814421631</td>
+                <td>Rs.500</td>
+            </tr>
+            <tr>
+                <td>Raju Sharma</td>
+                <td>raju@gmail.com</td>
+                <td>9844902032</td>
+                <td>Rs.149.99</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content %}

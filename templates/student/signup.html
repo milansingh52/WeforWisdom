@@ -1,0 +1,74 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<section class="d-flex flex-column min-vh-80 justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <p class="text-center text-secondary fs-2">Create a New Account</p>
+            {% if error %}
+            <h4>{{ error }}</h4>
+            {% endif %}
+
+            <div class="col-md-5 mx-auto">
+                <div class="m-5">
+                    <form action="/student-signup/" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Email *</label>
+                            <input class="form-control" type="email" name="email" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="name">Enter Your Name *</label>
+                            <input class="form-control" type="text" name="name" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password *</label>
+                            <input class="form-control" type="password" name="password" id="password">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Phone Number *</label>
+                            <input class="form-control" type="text" name="phone" id="phone">
+                        </div>
+
+                        <div class="mt-4">
+                            <input type="submit" value="Register" class="form-control btn btn-primary">
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="text-center">
+                                Already have an account <a href="{% url 'login' %}">SIGN IN</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Registration Model -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-2" id="staticBackdropLabel">Signup</h1> <br>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- form -->
+                
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
